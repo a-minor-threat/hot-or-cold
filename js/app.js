@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
     /*--- Display information modal box ---*/
     $(".what").click(function() {
         $(".overlay").fadeIn(1000);
@@ -23,8 +24,8 @@ $(document).ready(function() {
 
 function getGuess() {
     'use strict';
-    var guess = parseInt(prompt("Choose a number between 1 and 100"));
-//    var guess = document.getElementById("userGuess").value;
+//    var guess = parseInt(prompt("Choose a number between 1 and 100"));
+    var guess = parseInt(document.getElementById("userGuess").value);
     return guess;
 }
 
@@ -50,10 +51,10 @@ function newGame() {
         numDiff = Math.abs(target - guess);
         feedBack(numDiff);
     }
-    if (target === guess) {
-        document.getElementById("feedback").innerHTML = "You win!";
-        return;
-    }
+    // if (target === guess) {
+    //     document.getElementById("feedback").innerHTML = "You win!";
+    //     return;
+    // }
 }
 
 function feedBack(numDiff) {
@@ -74,6 +75,9 @@ function feedBack(numDiff) {
         document.getElementById("feedback").innerHTML = "You're burning hot!";
     } else {
         document.getElementById("feedback").innerHTML = "Burned alive!";
+    }
+    if (numDiff === 0) {
+        document.getElementById("feedback").innerHTML = "You win!";
     }
 }
 
