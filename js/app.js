@@ -17,7 +17,7 @@ $(document).ready(function() {
     })
 
     $(".button").click(function(event) {
-      feedBack();
+      feedBack(numDiff);
     });
 
 });
@@ -44,21 +44,23 @@ function newGame() {
     var guessCount = 0;
     var numDiff;
     document.getElementById("count").innerHTML = guessCount;
-    while (target !== guess) {
-        guess = getGuess();
-        guessCount++;
-        document.getElementById("count").innerHTML = guessCount;
-        numDiff = Math.abs(target - guess);
-        feedBack(numDiff);
-    }
+
     // if (target === guess) {
     //     document.getElementById("feedback").innerHTML = "You win!";
     //     return;
     // }
+    return target;
 }
 
-function feedBack(numDiff) {
+function feedBack(target, guess) {
     'use strict';
+    if (target !== guess) {
+        guess = getGuess();
+        guessCount++;
+        document.getElementById("count").innerHTML = guessCount;
+        numDiff = Math.abs(target - guess);
+    }
+
     if (numDiff > 80) {
         document.getElementById("feedback").innerHTML = "You're ice cold!";
     } else if (numDiff > 60) {
