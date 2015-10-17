@@ -17,7 +17,7 @@ $(document).ready(function() {
     })
 
     $(".button").click(function(event) {
-      feedBack(numDiff);
+      feedBack();
     });
 
 });
@@ -42,7 +42,6 @@ function newGame() {
     var target = randomNumber();
     var guess = -1;
     var guessCount = 0;
-    var numDiff;
     document.getElementById("count").innerHTML = guessCount;
 
     // if (target === guess) {
@@ -58,7 +57,7 @@ function feedBack(target, guess) {
         guess = getGuess();
         guessCount++;
         document.getElementById("count").innerHTML = guessCount;
-        numDiff = Math.abs(target - guess);
+    var numDiff = Math.abs(target - guess);
     }
 
     if (numDiff > 80) {
