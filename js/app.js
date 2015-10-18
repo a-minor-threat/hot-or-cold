@@ -19,6 +19,7 @@ $(document).ready(function() {
     })
 
     $(".button").click(function(event) {
+      event.preventDefault();
       feedBack(target, guess);
     });
 
