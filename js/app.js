@@ -20,6 +20,7 @@ $(document).ready(function() {
 
     $(".button").click(function(event) {
       event.preventDefault();
+      console.log(event.isDefaultPrevented());
       feedBack(target, guess);
     });
 
