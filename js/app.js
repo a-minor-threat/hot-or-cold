@@ -1,5 +1,7 @@
 $(document).ready(function() {
-
+    var target = 0;
+    var guess = 0;
+    var guessCount = -1;
 
     /*--- Display information modal box ---*/
     $(".what").click(function() {
@@ -17,10 +19,8 @@ $(document).ready(function() {
     })
 
     $(".button").click(function(event) {
-      feedBack();
+      feedBack(target, guess);
     });
-
-});
 
 function getGuess() {
     'use strict';
@@ -39,16 +39,10 @@ function randomNumber() {
 function newGame() {
     'use strict';
     console.log("Generating random number and resetting all other variables.")
-    var target = randomNumber();
-    var guess = -1;
-    var guessCount = 0;
+     target = randomNumber();
+     guess = -1;
+     guessCount = 0;
     document.getElementById("count").innerHTML = guessCount;
-
-    // if (target === guess) {
-    //     document.getElementById("feedback").innerHTML = "You win!";
-    //     return;
-    // }
-    return target;
 }
 
 function feedBack(target, guess) {
@@ -81,4 +75,8 @@ function feedBack(target, guess) {
         document.getElementById("feedback").innerHTML = "You win!";
     }
 }
+
+
+});
+
 
